@@ -1,3 +1,4 @@
+from csv import writer
 from turtle import screensize
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -35,3 +36,39 @@ def test_web_application():
     
     # Showing the image
     image.show()   
+
+    # Closing the image
+    image.close()
+
+    # Close the browser
+    driver.quit()
+    
+
+def test_web_application_title():
+    
+    # Path to your ChromeDriver
+    service = Service(r"C:\Swapna\Tech\chromedriver_win32\chromedriver.exe")
+
+    # # Initialize the WebDriver
+    #driver = webdriver.Chrome(executable_path="C://Program Files//Google//Chrome//Application//chrome.exe")
+    driver = webdriver.Chrome(service=service)
+
+    url = "https://www.geeksforgeeks.org/"
+    
+    # Opening the website
+    driver.get(url)
+
+    # Test case to check the title of the web page
+    expected_title = "GeeksforGeeks | A computer science portal for geeks"
+    actual_title = driver.title
+
+    try:
+        assert actual_title == expected_title
+        logging.info("Title matches expected title.")
+    except AssertionError:
+        logging.error(f"Title does not match. Expected: {expected_title}, but got: {actual_title}")
+        raise AssertionError(f"Title does not match. Expected: {expected_title}, but got: {actual_title}")
+
+    # Close the browser
+    driver.quit()
+    

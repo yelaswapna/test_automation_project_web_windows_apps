@@ -20,4 +20,10 @@ def test_windows_application():
     #To save the file with random name
     screenshot.save(file_name)
     screenshot.show()
+    #To close the screenshot
+    screenshot.close()
+    #To close the application
+    app.kill()
+
+
     
