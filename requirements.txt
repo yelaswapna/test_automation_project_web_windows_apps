@@ -1,0 +1,6 @@
+selenium==4.11.2
+pywinauto==0.6.8
+pytest==7.4.0
+pytest-html==3.2.0
+python-dotenv==1.0.0
+requests==2.31.0
